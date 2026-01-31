@@ -18,6 +18,13 @@ The project is organized into modules corresponding to the course curriculum:
 * **05-Stored-Procedures:** Creating Procedures, Variables, and `IF...ELSE` logic.
 * **06-Advanced-Set-Operators:** `UNION`, `INTERSECT`, `EXCEPT`, and `EXISTS`.
 * **07-Cursors-and-Triggers:** Row-by-row processing (Cursors) and Automation Triggers (Audit/Stock).
+  
+### 🔹 08-Complex-Reporting (Business Intelligence)
+This module demonstrates advanced SQL capabilities split into three levels of complexity:
+
+* **Level 1 (Summary Reports):** Aggregating revenue by brands and evaluating store performance vs. staff count.
+* **Level 2 (Window Functions):** Calculating Year-to-Date (YTD) cumulative sales and ranking top products per category without subqueries.
+* **Level 3 (Executive Intelligence):** A complex Churn Risk Analysis using CTEs to identify high-value "Gold" customers who have become inactive, simulating a real-world CRM requirement.
 
 ## 🚀 How to Run
 1.  Run scripts in `00-Database-Setup` to initialize the databases.
