@@ -1,10 +1,18 @@
 /*
- * Module: Control Flow (IF...ELSE)
- */
+================================================================================
+Module  : 05-Stored-Procedures
+Script  : 03-Control-Flow-If-Else.sql
+Purpose : Show clean branching logic with IF...ELSE based on revenue target.
+================================================================================
+*/
 
-DECLARE @sales INT = 12000000;
+SET NOCOUNT ON;
 
-IF @sales > 10000000
-    PRINT 'Great! Target Achieved!';
+DECLARE @sales_amount MONEY = 12000000;
+DECLARE @target MONEY = 10000000;
+
+IF @sales_amount >= @target
+    PRINT CONCAT('Great! Target achieved. Sales: ', CONVERT(VARCHAR(30), @sales_amount));
 ELSE
-    PRINT 'Sales amount did not reach the target.';
+    PRINT CONCAT('Below target. Sales: ', CONVERT(VARCHAR(30), @sales_amount));
+GO

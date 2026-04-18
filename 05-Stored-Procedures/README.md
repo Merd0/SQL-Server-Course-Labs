@@ -1,18 +1,18 @@
 # 05 — Stored Procedures
 
-Introduction to procedural programming patterns in T-SQL.
+Reusable procedural SQL patterns in SQL Server.
 
 ## Objectives
-- Encapsulate business logic in stored procedures.
-- Pass and return values with procedure parameters.
-- Implement conditional flow in SQL Server.
+- Encapsulate reusable logic in stored procedures.
+- Work with input/output parameters.
+- Apply control flow with `IF...ELSE`.
 
 ## Scripts
-- `01-Create-Stored-Procedure.sql SQL`
+- `01-Create-Stored-Procedure.sql`
 - `02-Variables-Input-Output.sql`
 - `03-Control-Flow-If-Else.sql`
 
 ## Skills Practiced
-- Reusable database logic
-- Parameterized execution
-- Basic branching with `IF...ELSE`
+- Procedure lifecycle with `CREATE OR ALTER`
+- Parameterized execution and outputs
+- Business-rule branching

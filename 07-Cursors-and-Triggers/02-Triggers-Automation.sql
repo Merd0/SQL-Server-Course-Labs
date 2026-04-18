@@ -1,38 +1,49 @@
 /*
- * Module: Triggers
- * Description: Automating actions (Audit Log & Stock Updates).
- */
+================================================================================
+Module  : 07-Cursors-and-Triggers
+Script  : 02-Triggers-Automation.sql
+Purpose : Implement audit + stock update triggers with rerunnable setup.
+================================================================================
+*/
 
--- 1. Logging Trigger (Audit deleted orders)
-CREATE TABLE sales.deleted_orders (
-    order_id INT,
-    customer_id INT,
-    deleted_at DATETIME DEFAULT GETDATE()
-);
+SET NOCOUNT ON;
 GO
 
-CREATE TRIGGER sales.trg_LogDeletedOrders
+IF OBJECT_ID('sales.deleted_orders', 'U') IS NULL
+BEGIN
+    CREATE TABLE sales.deleted_orders (
+        order_id    INT NOT NULL,
+        customer_id INT NULL,
+        deleted_at  DATETIME2(0) NOT NULL DEFAULT SYSDATETIME()
+    );
+END;
+GO
+
+CREATE OR ALTER TRIGGER sales.trg_LogDeletedOrders
 ON sales.orders
 AFTER DELETE
 AS
 BEGIN
+    SET NOCOUNT ON;
+
     INSERT INTO sales.deleted_orders (order_id, customer_id)
-    SELECT order_id, customer_id
-    FROM deleted;
+    SELECT d.order_id, d.customer_id
+    FROM deleted AS d;
 END;
 GO
 
--- 2. Stock Management Trigger
--- Automatically decreases stock when an order is placed
-CREATE TRIGGER trg_UpdateStocks
+CREATE OR ALTER TRIGGER sales.trg_UpdateStocks
 ON sales.order_items
 AFTER INSERT
 AS
 BEGIN
+    SET NOCOUNT ON;
+
     UPDATE s
-    SET quantity = s.quantity - i.quantity
-    FROM production.stocks s
-    INNER JOIN inserted i ON s.product_id = i.product_id
-    WHERE s.store_id = 1; -- Example store logic
+    SET s.quantity = s.quantity - i.quantity
+    FROM production.stocks AS s
+    INNER JOIN inserted AS i
+        ON s.product_id = i.product_id
+       AND s.store_id = i.store_id;
 END;
 GO
