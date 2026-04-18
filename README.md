@@ -1,34 +1,152 @@
-# 🚀 SQL Server & Database Management Systems Lab
+# SQL Server Course Labs — From Fundamentals to Business Reporting
 
-This repository contains a comprehensive collection of SQL scripts, lab exercises, and notes from the **Database Management Systems** course. It demonstrates a complete progression from basic database concepts to advanced T-SQL programming using **Microsoft SQL Server**.
+This repository is a **structured SQL Server learning portfolio** that documents my end-to-end progression in T-SQL:
 
-The exercises utilize two distinct datasets to simulate real-world scenarios:
-1.  **BikeStores Database:** A retail system managing sales, inventory, and staff.
-2.  **University Database:** An academic system managing departments, instructors, and courses.
+- Database setup and schema design (DDL)
+- Data types, keys, and constraints
+- Querying, filtering, and joins
+- Procedural SQL with stored procedures
+- Advanced set operators and subquery patterns
+- Automation with cursors and triggers
+- Multi-level business reporting with window functions and executive KPIs
 
-## 📂 Repository Structure
-
-The project is organized into modules corresponding to the course curriculum:
-
-* **00-Database-Setup:** Installation scripts for BikeStores and University databases.
-* **01-Introduction-DDL:** Database/Table creation, Identity columns, and Temporary Tables.
-* **02-DataTypes-Constraints:** Data types (Decimal/Date), Constraints (PK/FK/Check), and Computed Columns.
-* **03-Basic-Queries-Filtering:** `SELECT`, `ORDER BY`, `TOP`, `LIKE`, `BETWEEN`.
-* **04-Joins-Relations:** `INNER`, `LEFT`, `RIGHT`, `FULL OUTER` Joins and Aliases.
-* **05-Stored-Procedures:** Creating Procedures, Variables, and `IF...ELSE` logic.
-* **06-Advanced-Set-Operators:** `UNION`, `INTERSECT`, `EXCEPT`, and `EXISTS`.
-* **07-Cursors-and-Triggers:** Row-by-row processing (Cursors) and Automation Triggers (Audit/Stock).
-  
-### 🔹 08-Complex-Reporting (Business Intelligence)
-This module demonstrates advanced SQL capabilities split into three levels of complexity:
-
-* **Level 1 (Summary Reports):** Aggregating revenue by brands and evaluating store performance vs. staff count.
-* **Level 2 (Window Functions):** Calculating Year-to-Date (YTD) cumulative sales and ranking top products per category without subqueries.
-* **Level 3 (Executive Intelligence):** A complex Churn Risk Analysis using CTEs to identify high-value "Gold" customers who have become inactive, simulating a real-world CRM requirement.
-
-## 🚀 How to Run
-1.  Run scripts in `00-Database-Setup` to initialize the databases.
-2.  Execute the scripts in sequential folders to follow the learning path.
+The labs are intentionally organized like a mini curriculum so a reviewer can quickly understand both **technical depth** and **learning discipline**.
 
 ---
-*Created by [Mert Aydın] - 2026*
+
+## Tech Stack
+
+- **Database:** Microsoft SQL Server
+- **Language:** T-SQL
+- **Datasets:**
+  - **BikeStores** (retail sales/inventory/staff operations)
+  - **UniversityDB** (academic departments/courses/instructors)
+
+---
+
+## Portfolio Goals
+
+This repo is designed to show that I can:
+
+1. Build and manage relational database structures.
+2. Write clean, readable, and testable SQL scripts.
+3. Move from basic queries to production-style reporting logic.
+4. Solve business problems (sales performance, churn risk, ranking, YTD trends) using SQL only.
+
+---
+
+## Repository Roadmap
+
+```text
+00-Database-Setup
+01-Introduction-DDL
+02-DataTypes-Constraints
+03-Basic-Queries-Filtering
+04-Joins-Relations
+05-Stored-Procedures
+06-Advanced-Set-Operators
+07-Cursors-and-Triggers
+08-Complex-Reporting
+```
+
+### 00 — Database Setup
+Environment initialization scripts for the two training databases.
+
+- BikeStores object creation, data load, and cleanup
+- UniversityDB creation + practice queries
+
+### 01 — Introduction to DDL
+Core schema operations and table lifecycle practices.
+
+- `CREATE/DROP DATABASE`
+- `CREATE/ALTER TABLE`
+- `IDENTITY`, temporary tables
+
+### 02 — Data Types & Constraints
+Data quality and integrity fundamentals.
+
+- Numeric/date/string type strategy
+- `PRIMARY KEY`, `FOREIGN KEY`, `CHECK`, `DEFAULT`
+- Computed columns and `SELECT INTO`
+
+### 03 — Basic Queries & Filtering
+Query foundation and data slicing patterns.
+
+- `SELECT`, `TOP`, `ORDER BY`
+- `WHERE`, `LIKE`, `BETWEEN`, conditional filtering
+
+### 04 — Joins & Relations
+Relational thinking and multi-table analysis.
+
+- `INNER`, `LEFT`, `RIGHT`, `FULL OUTER JOIN`
+- aliasing and readable query composition
+
+### 05 — Stored Procedures
+Reusable SQL programming patterns.
+
+- creating procedures
+- input/output parameters
+- variables and `IF...ELSE` control flow
+
+### 06 — Advanced Set Operators
+Comparative querying and result-set logic.
+
+- `UNION`, `INTERSECT`, `EXCEPT`
+- `EXISTS`, `ANY`, `ALL`
+
+### 07 — Cursors & Triggers
+Database-side automation and event-driven behavior.
+
+- cursor lifecycle and controlled row-by-row operations
+- trigger-based validation/auditing scenarios
+
+### 08 — Complex Reporting (Showcase Module)
+This module represents the most business-oriented part of the repo.
+
+- **Level 1:** summary reporting and store/brand performance
+- **Level 2:** window functions for YTD totals and ranking logic
+- **Level 3:** executive dashboard query for churn-risk detection (including CTE-driven customer segmentation)
+
+---
+
+## How to Run (Recommended Order)
+
+1. Execute scripts in **`00-Database-Setup/`** first.
+2. Continue folder-by-folder from **`01`** to **`08`**.
+3. Treat each script as a focused lab and run sections incrementally.
+
+> Tip: For review/demo sessions, start with `08-Complex-Reporting` after setup to quickly show advanced capability.
+
+---
+
+## What a Reviewer Can Expect
+
+- Clear progression from beginner concepts to advanced analysis
+- Practical SQL patterns that mirror real-world business requests
+- Evidence of problem-solving beyond syntax memorization
+- A reusable set of scripts suitable for interview walkthroughs
+
+---
+
+## Next Professionalization Steps (Planned)
+
+- Add inline “problem statement → solution” headers to each lab file
+- Add expected output snapshots for key reports
+- Add indexing/performance notes (`SET STATISTICS IO/TIME`) for advanced queries
+- Add transaction/error-handling labs (`TRY...CATCH`, rollback strategy)
+
+---
+
+
+## Collaboration & Git Hygiene
+
+- Use branch names that reflect feature intent (example: `docs/professionalize-labs`), avoiding tool-generated names.
+- Prefer **Squash and merge** with a clean human-written commit title.
+- Keep commit messages reviewer-friendly (`scope: short description`).
+
+---
+
+## Author
+
+**Mert Aydın**  
+SQL Server / Database Management Systems Practice Repository (2026)

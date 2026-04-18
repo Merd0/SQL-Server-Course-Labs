@@ -1,17 +1,24 @@
 /*
- * Module: Computed Columns
- * Description: Columns that automatically calculate values.
- */
+================================================================================
+Module  : 02-DataTypes-Constraints
+Script  : 04-Computed-Columns.sql
+Purpose : Add and verify a computed column for customer full name display.
+================================================================================
+*/
 
--- Add 'full_name' as a computed column combining first and last name
-ALTER TABLE sales.customers
-ADD full_name AS (first_name + ' ' + last_name);
+SET NOCOUNT ON;
+
+IF COL_LENGTH('sales.customers', 'full_name') IS NULL
+BEGIN
+    ALTER TABLE sales.customers
+    ADD full_name AS (CONCAT(first_name, ' ', last_name));
+END;
 GO
 
--- Verification: Select logic without needing string concatenation in query
-SELECT TOP 5 
+SELECT TOP (10)
     customer_id,
-    full_name, 
-    email 
-FROM sales.customers;
+    full_name,
+    email
+FROM sales.customers
+ORDER BY customer_id;
 GO
