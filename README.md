@@ -1,5 +1,9 @@
 # SQL Server Course Labs — From Fundamentals to Business Reporting
 
+**English | [Türkçe](README.tr.md)**
+
+**[English learning roadmap](LEARNING_PATH.md) · [Türkçe öğrenme yolu](LEARNING_PATH.tr.md)**
+
 This repository is a **structured SQL Server learning portfolio** that documents my end-to-end progression in T-SQL:
 
 - Database setup and schema design (DDL)
